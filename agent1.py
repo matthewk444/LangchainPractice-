@@ -4,6 +4,7 @@ from langchain.agents import create_tool_calling_agent, AgentExecutor
 from langchain_core.prompts import ChatPromptTemplate 
 from dotenv import load_dotenv
 import os
+load_dotenv
 
 # Task is to create an agent to answer questions about mlb player stats. 
 
@@ -43,4 +44,4 @@ executor = AgentExecutor(agent=agent, tools=tools)
 #5 run it 
 
 result = executor.invoke({"input": "Compare Aaron Judge and Shohei Ohtani's stats with the data to prove it. "})
-print(result)
+print(result["output"])
