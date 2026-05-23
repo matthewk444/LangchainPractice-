@@ -39,7 +39,7 @@ prompt = ChatPromptTemplate.from_messages([
 
 tools = [get_player_stats, compare_players]
 agent = create_tool_calling_agent(llm=llm, tools=tools, prompt=prompt)
-executor = AgentExecutor(agent=agent, tools=tools)
+executor = AgentExecutor(agent=agent, tools=tools) # Agent executor invisibly sends results back to the model then our LLM creates its final answer. 
 
 #5 run it 
 
